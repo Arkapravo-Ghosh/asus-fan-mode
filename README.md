@@ -1,5 +1,5 @@
 # asus-fan-mode
-Fan Mode Control for Asus Vivobook 14X Pro OLED
+Fan Mode Control for Asus Vivobook 14X Pro OLED in Linux
 
 * [Click Here](src/main.py) for Source code.
 ## Installation
