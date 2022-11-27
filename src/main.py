@@ -52,7 +52,6 @@ def set_fan_mode(mode):  # Set the fan mode
     if mode == "auto":  # Set the fan mode to auto
         command = f"tee /sys/devices/platform/asus-nb-wmi/hwmon/hwmon{fanint}/pwm1_enable <<< 2"
         debug = run_command(command, "auto")
-
     elif mode == "full":  # Set the fan mode to full speed
         command = f"tee /sys/devices/platform/asus-nb-wmi/hwmon/hwmon{fanint}/pwm1_enable <<< 0"
         debug = run_command(command, "full")
