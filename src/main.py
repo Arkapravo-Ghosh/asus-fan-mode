@@ -68,7 +68,10 @@ Set the fan mode of {laptop}.
     else: # Invalid option
         print("Invalid argument. Use '-h' or '--help' for help.")
     if "-d" in sys.argv or "--debug" in sys.argv: # Print debug information
-        print("\n" + debug)
+        try:
+            print("\n" + debug)
+        except TypeError:
+            pass
 
 
 if __name__ == "__main__": # Run the main function
