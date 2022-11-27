@@ -55,11 +55,7 @@ def set_fan_mode(mode): # Set the fan mode
 
 def main(): # Main function
     debug = None
-    if "--auto" in sys.argv or "-a" in sys.argv: # Set fan mode to auto
-        debug = set_fan_mode("auto")
-    elif "--full" in sys.argv or "-f" in sys.argv: # Set the fan to full speed
-        debug = set_fan_mode("full")
-    elif "--help" in sys.argv or "-h" in sys.argv: # Help
+    if "--help" in sys.argv or "-h" in sys.argv: # Help
         print(
             f"""
 Usage: {filename} [OPTION]
@@ -72,6 +68,10 @@ Set the fan mode of {laptop}.
     -h, --help\t\t\tShow this help message.
 """
         )
+    elif "--auto" in sys.argv or "-a" in sys.argv: # Set fan mode to auto
+        debug = set_fan_mode("auto")
+    elif "--full" in sys.argv or "-f" in sys.argv: # Set the fan to full speed
+        debug = set_fan_mode("full")
     elif "--status" in sys.argv or "-s" in sys.argv: # Get the fan status
         debug = get_fan_status()
         debug1 = get_temp()
