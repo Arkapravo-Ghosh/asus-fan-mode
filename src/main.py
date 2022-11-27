@@ -18,9 +18,20 @@ def get_fan_status(): # Get the current fan status
         debug = subprocess.getoutput(f"sensors -u {fan_name}")
         for line in debug.splitlines():
             if "fan1_input" in line:
-                print(float(line.split(":")[1].strip())) # Print the fan speed
+                print("Fan Speed:", (float(line.split(":")[1].strip())), "RPM") # Print the fan speed
     except Exception as debug:
-        return "N/A"
+        print("N/A")
+    return debug
+
+def get_temp(): # Get the current fan temperature
+    try:
+        debug = subprocess.getoutput("cat /sys/class/thermal/thermal_zone*/temp")
+        cnt = 0
+        for line in debug.splitlines():
+            print(f"Temp {cnt}:", (float(line) / 1000), "°C")
+            cnt += 1
+    except Exception as debug:
+        print("N/A")
     return debug
 
 def run_command(command, mode): # Run a command and return the output
@@ -63,6 +74,7 @@ Set the fan mode of {laptop}.
         )
     elif "--status" in sys.argv or "-s" in sys.argv: # Get the fan status
         debug = get_fan_status()
+        debug1 = get_temp()
     elif "--version" in sys.argv or "-v" in sys.argv: # Print the version
         print(f"{name} version {version} created by {author}.")
     else: # Invalid option
@@ -71,6 +83,10 @@ Set the fan mode of {laptop}.
         try:
             print("\n" + debug)
         except TypeError:
+            pass
+        try:
+            print(debug1)
+        except UnboundLocalError:
             pass
 
 
