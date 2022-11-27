@@ -3,7 +3,7 @@ import sys
 import subprocess
 
 # Metadata
-version = "1.0.3"
+version = "1.0.5"
 author = "Arkapravo Ghosh"
 name = "fan-mode"
 
