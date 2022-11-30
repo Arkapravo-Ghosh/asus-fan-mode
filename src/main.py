@@ -3,7 +3,7 @@ import sys
 import subprocess
 
 # Metadata
-version = "1.0.5"
+version = "1.0.6"
 author = "Arkapravo Ghosh"
 name = "fan-mode"
 
@@ -32,7 +32,7 @@ def get_temp():  # Get the current fan temperature
         debug = subprocess.getoutput("cat /sys/class/thermal/thermal_zone*/temp")
         cnt = 0
         for line in debug.splitlines():
-            print(f"Temp {cnt}:", (float(line) / 1000), "°C")
+            print(f"Temp {cnt}:", (round(float(line) / 1000)), f"{chr(176)}C")
             cnt += 1
     except Exception as debug:
         print("N/A")
