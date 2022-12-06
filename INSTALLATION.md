@@ -11,7 +11,7 @@
   `sudo apt install lm-sensors`
   ### Fedora Linux
   `sudo dnf install lm_sensors`
-  ### RedHat Enterprise Linux
+  ### Red Hat Enterprise Linux
   `sudo yum install lm_sensors`
   ### OpenSUSE Linux
   `sudo zypper install sensors`
