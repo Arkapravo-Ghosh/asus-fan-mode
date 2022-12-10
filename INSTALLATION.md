@@ -59,6 +59,6 @@ cd asus-fan-mode
 sudo pip3 install -r requirements.txt
 ./install.sh
 ```
-> Run the command `fan-mode` to launch the program.
+> Run the command `fan-mode` to launch the program.\
 > To uninstall, run [`./uninstall.sh`](uninstall.sh) in terminal.
 
