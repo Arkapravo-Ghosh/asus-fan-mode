@@ -9,7 +9,7 @@ name = "fan-mode"
 
 # Configuration
 laptop = "ASUS VivoBook 14X Pro OLED M7400QE 1.0"
-fanint = "6"
+fanint = "7"
 fan_name = "asus-isa-0000"
 filename = sys.argv[0]
 
