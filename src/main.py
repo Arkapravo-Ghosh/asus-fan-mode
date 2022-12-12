@@ -3,13 +3,13 @@ import sys
 import subprocess
 
 # Metadata
-version = "1.0.8"
+version = "1.0.9"
 author = "Arkapravo Ghosh"
 name = "fan-mode"
 
 # Configuration
 laptop = "ASUS VivoBook 14X Pro OLED M7400QE 1.0"
-fanint = "7"
+fanint = "*"
 fan_name = "asus-isa-0000"
 filename = sys.argv[0]
 
