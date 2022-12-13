@@ -1,17 +1,21 @@
 #!/bin/python3
 import sys
 import subprocess
+import configparser
 
 # Metadata
-version = "1.0.9"
+version = "1.1.0"
 author = "Arkapravo Ghosh"
 name = "fan-mode"
 
 # Configuration
-laptop = "ASUS VivoBook 14X Pro OLED M7400QE 1.0"
-fanint = "*"
-fan_name = "asus-isa-0000"
 filename = sys.argv[0]
+config = configparser.ConfigParser()
+config.read_file(open("/etc/fan-mode.conf"))
+laptop = config.get("fan-mode", "laptop")
+fanint = config.get("fan-mode", "fanint")
+fan_name = config.get("fan-mode", "fan_name")
+platform = config.get("fan-mode", "platform")
 
 
 def get_fan_status():  # Get the current fan status
@@ -22,6 +26,20 @@ def get_fan_status():  # Get the current fan status
                 print(
                     "Fan Speed:", (float(line.split(":")[1].strip())), "RPM"
                 )  # Print the fan speed
+    except Exception as debug:
+        print("N/A")
+    return debug
+
+
+def get_current_mode():  # Get the current fan mode
+    try:
+        debug = subprocess.getoutput(
+            f"cat /sys/devices/platform/{platform}/hwmon/hwmon{fanint}/pwm1_enable"
+        )
+        if debug == "2":
+            print("Fan mode is set to auto.")
+        elif debug == "0":
+            print("Fan mode is set to full.")
     except Exception as debug:
         print("N/A")
     return debug
@@ -50,10 +68,10 @@ def run_command(command, mode):  # Run a command and return the output
 
 def set_fan_mode(mode):  # Set the fan mode
     if mode == "auto":  # Set the fan mode to auto
-        command = f"tee /sys/devices/platform/asus-nb-wmi/hwmon/hwmon{fanint}/pwm1_enable <<< 2"
+        command = f"tee /sys/devices/platform/{platform}/hwmon/hwmon{fanint}/pwm1_enable <<< 2"
         debug = run_command(command, "auto")
     elif mode == "full":  # Set the fan mode to full speed
-        command = f"tee /sys/devices/platform/asus-nb-wmi/hwmon/hwmon{fanint}/pwm1_enable <<< 0"
+        command = f"tee /sys/devices/platform/{platform}/hwmon/hwmon{fanint}/pwm1_enable <<< 0"
         debug = run_command(command, "full")
     return debug
 
@@ -80,6 +98,7 @@ Set the fan mode of {laptop}.
     elif "--status" in sys.argv or "-s" in sys.argv:  # Get the fan status
         debug = get_fan_status()
         debug1 = get_temp()
+        debug2 = get_current_mode()
     elif "--version" in sys.argv or "-v" in sys.argv:  # Print the version
         print(f"{name} version {version} created by {author}.")
     else:  # Invalid option
@@ -91,6 +110,10 @@ Set the fan mode of {laptop}.
             pass
         try:
             print(debug1)
+        except UnboundLocalError:
+            pass
+        try:
+            print(debug2)
         except UnboundLocalError:
             pass
 
