@@ -4,7 +4,7 @@ import subprocess
 import configparser
 
 # Metadata
-version = "1.1.0"
+version = "1.1.1"
 author = "Arkapravo Ghosh"
 name = "fan-mode"
 
@@ -78,6 +78,8 @@ def set_fan_mode(mode):  # Set the fan mode
 
 def main():  # Main function
     debug = None
+    if "-d" in sys.argv or "--debug" in sys.argv: 
+        print(f"Running {filename} version {version} by {author} in debug mode.\n")
     if "--help" in sys.argv or "-h" in sys.argv:  # Help
         print(
             f"""
