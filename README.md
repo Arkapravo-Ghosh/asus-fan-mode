@@ -13,7 +13,7 @@ Fan Mode Control for Asus Vivobook 14X Pro OLED in Linux
 * `fan-mode --status` - Get status of fan
 > Use `fan-mode --help` for more information.
 ## Misc
-* `clean.sh` - Execute this script to automatically clean all build files created while compiling or installing the project. This does not uninstall the program.
-* `compile.sh` - Execute this script to automatically compile the project. This does not install the program.
+* [`clean.sh`](clean.sh) - Execute this script to automatically clean all build files created while compiling or installing the project. This does not uninstall the program.
+* [`compile.sh`](compile.sh) - Execute this script to automatically compile the project. This does not install the program.
 > NOTE: Please run `sudo pip3 install -r requirements.txt` in the repo directory before using this script if you have not installed the dependencies of this project yet.
 
