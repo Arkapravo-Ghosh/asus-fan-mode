@@ -4,7 +4,7 @@ import subprocess
 import configparser
 
 # Metadata
-version = "1.1.1"
+version = "1.1.2"
 author = "Arkapravo Ghosh"
 name = "fan-mode"
 
@@ -68,10 +68,10 @@ def run_command(command, mode):  # Run a command and return the output
 
 def set_fan_mode(mode):  # Set the fan mode
     if mode == "auto":  # Set the fan mode to auto
-        command = f"tee /sys/devices/platform/{platform}/hwmon/hwmon{fanint}/pwm1_enable <<< 2"
+        command = f"bash -c \"tee /sys/devices/platform/{platform}/hwmon/hwmon{fanint}/pwm1_enable <<< 2\""
         debug = run_command(command, "auto")
     elif mode == "full":  # Set the fan mode to full speed
-        command = f"tee /sys/devices/platform/{platform}/hwmon/hwmon{fanint}/pwm1_enable <<< 0"
+        command = f"bash -c \"tee /sys/devices/platform/{platform}/hwmon/hwmon{fanint}/pwm1_enable <<< 0\""
         debug = run_command(command, "full")
     return debug
 
