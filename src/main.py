@@ -4,7 +4,7 @@ import subprocess
 import configparser
 
 # Metadata
-version = "1.1.2"
+version = "1.1.3"
 author = "Arkapravo Ghosh"
 name = "fan-mode"
 
@@ -88,6 +88,7 @@ Usage: {filename} [OPTION]
 Set the fan mode of {laptop}.
     -a, --auto\t\t\tSet the fan mode to auto.
     -f, --full\t\t\tSet the fan mode to full speed.
+    -s, --status\t\tGet the fan status.
     -d, --debug\t\t\tPrint debug information.
     -v, --version\t\tPrint the version of this script.
     -h, --help\t\t\tShow this help message.
