@@ -97,7 +97,7 @@ sudo pip3 install -r requirements.txt
 ```
 ### Create a config file
 ```
-sudo cp fan-mode.conf /etc/fan-mode.conf
+sudo fan-mode --setup
 ```
 
 > Run the command `fan-mode` to launch the program.\
