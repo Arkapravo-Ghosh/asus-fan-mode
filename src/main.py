@@ -4,7 +4,7 @@ import subprocess
 import configparser
 
 # Metadata
-version = "1.1.4"
+version = "1.1.5"
 author = "Arkapravo Ghosh"
 name = "fan-mode"
 
@@ -18,7 +18,7 @@ def run_checks():
         config.read_file(open("/etc/fan-mode.conf"))
     except FileNotFoundError:
         print(
-            'Configuration file not found. Please run "fan-mode --setup" to create one. Use "fan-mode --help" for more information.'
+            'Configuration file not found. Please run "sudo fan-mode --setup" to create one. Use "fan-mode --help" for more information.'
         )
         exit(1)
     try:
