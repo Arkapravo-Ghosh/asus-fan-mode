@@ -4,7 +4,7 @@ import subprocess
 import configparser
 
 # Metadata
-version = "1.1.5"
+version = "1.1.6"
 author = "Arkapravo Ghosh"
 name = "fan-mode"
 
@@ -20,7 +20,7 @@ def run_checks():
         print(
             'Configuration file not found. Please run "sudo fan-mode --setup" to create one. Use "fan-mode --help" for more information.'
         )
-        exit(1)
+        sys.exit(1)
     try:
         laptop = config.get("fan-mode", "laptop")
         fanint = config.get("fan-mode", "fanint")
@@ -30,7 +30,7 @@ def run_checks():
         print(
             'Configuration file is invalid. Please run "fan-mode --setup" to create one. Use "fan-mode --help" for more information.'
         )
-        exit(1)
+        sys.exit(1)
     conf = [laptop, fanint, fan_name, platform]
     return conf
 
@@ -87,6 +87,7 @@ def run_command(command, mode):  # Run a command and return the output
         print(f"Fan mode set to {mode}.")
     elif "Permission denied" in debug:
         print("You need to run this script as root to use this option.")
+        sys.exit(1)
     return debug
 
 
@@ -140,7 +141,7 @@ Set the fan mode of your Laptop.
         chk = subprocess.getoutput("touch /etc/fan-mode.conf")
         if "Permission denied" in chk:
             print("You need to run this script as root to use this option.")
-            exit(1)
+            sys.exit(1)
         else:
             lp_name = subprocess.getoutput("dmidecode -s system-product-name")
             with open("/etc/fan-mode.conf", "w") as f:
