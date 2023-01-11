@@ -11,6 +11,7 @@ Fan Mode Control for Asus Vivobook 14X Pro OLED in Linux
 * `sudo fan-mode --auto` - Automatically optimise fan speed as per usage
 * `sudo fan-mode --full` - Force fan to run in full speed
 * `fan-mode --status` - Get status of fan
+* `fan-mode --setup` - To generate a default configuration file
 > Use `fan-mode --help` for more information.
 ## Misc
 * [`clean.sh`](clean.sh) - Execute this script to automatically clean all build files created while compiling or installing the project. This does not uninstall the program.
