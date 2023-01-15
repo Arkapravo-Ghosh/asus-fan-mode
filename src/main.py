@@ -157,12 +157,6 @@ Set the fan mode of your Laptop.
             print("\n" + debug)
         except TypeError:
             pass
-        #        try:                                  # Will remove this part later
-        #            print(debug1)
-        #        except UnboundLocalError:
-        #            pass
-        #        try:
-        #            print(debug2)
         except UnboundLocalError:
             pass
 
