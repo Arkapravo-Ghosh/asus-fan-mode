@@ -101,6 +101,7 @@ def set_fan_mode(mode):  # Set the fan mode
     elif mode == "full":  # Set the fan mode to full speed
         command = f'bash -c "tee /sys/devices/platform/{platform}/hwmon/hwmon{fanint}/pwm1_enable <<< 0"'
         debug = run_command(command, "full")
+    #TODO: Add support for GPU Fan control
     return debug
 
 
