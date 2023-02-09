@@ -18,3 +18,5 @@ Fan Mode Control for Asus Vivobook 14X Pro OLED in Linux
 * [`compile.sh`](compile.sh) - Execute this script to automatically compile the project. This does not install the program.
 > NOTE: Please run `sudo pip3 install -r requirements.txt` in the repo directory before using this script if you have not installed the dependencies of this project yet.
 
+### Known Issues
+* GPU Fan Controlling is not supported yet.
