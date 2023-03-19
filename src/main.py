@@ -4,7 +4,7 @@ import subprocess
 import configparser
 
 # Metadata
-version = "1.1.6"
+version = "1.1.7"
 author = "Arkapravo Ghosh"
 name = "fan-mode"
 
@@ -73,9 +73,12 @@ def get_temp():  # Get the current fan temperature
     try:
         debug = subprocess.getoutput("cat /sys/class/thermal/thermal_zone*/temp")
         cnt = 0
+        linelist = []
         for line in debug.splitlines():
-            print(f"Temp {cnt}:", (round((float(line) / 1000))), f"{chr(176)}C")
+            linelist.append(line)
             cnt += 1
+        print(f"CPU Temp:", (round((float(linelist[0]) / 1000))), f"{chr(176)}C")
+        print(f"GPU Temp:", (round((float(linelist[1]) / 1000))), f"{chr(176)}C")
     except Exception as debug:
         print("N/A")
     return debug
