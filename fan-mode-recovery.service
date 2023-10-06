@@ -1,0 +1,13 @@
+[Unit]
+Description=Fan Mode Service
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+StartLimitBurst=5
+ExecStart=/usr/bin/fan-mode -r
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
