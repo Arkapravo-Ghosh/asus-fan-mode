@@ -2,6 +2,31 @@
 # ASUS Fan Mode Controller
 Fan Mode Control for Asus Vivobook 14X Pro OLED on Linux
 
+## Automatic Fan Control Based on Temperature
+
+The `fan-mode-recovery` service automatically adjusts the fan speed based on the system's CPU temperature.
+
+- **When the CPU temperature exceeds 80°C**: The fan is automatically set to full speed to cool down the system.
+- **When the CPU temperature drops below 70°C**: The fan mode is switched back to auto, allowing the system to regulate the fan speed based on normal usage.
+
+This automatic control ensures that the system remains cool during high load and returns to quieter, more energy-efficient operation when the temperature is back to normal levels.
+
+You can still manually set the fan mode to full or auto using the following commands if needed:
+
+- **Full fan speed**:
+
+    ```bash
+    sudo fan-mode --full
+    ```
+
+- **Auto mode**:
+
+    ```bash
+    sudo fan-mode --auto
+    ```
+
+
+
 ![](https://img.shields.io/github/license/Arkapravo-Ghosh/asus-fan-mode)
 ![](https://img.shields.io/badge/platform-Linux-blue)
 
