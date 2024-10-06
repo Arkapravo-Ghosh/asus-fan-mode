@@ -6,8 +6,10 @@ Fan Mode Control for Asus Vivobook 14X Pro OLED on Linux
 
 The `fan-mode-recovery` service automatically adjusts the fan speed based on the system's CPU temperature.
 
-- **When the CPU temperature exceeds 80°C**: The fan is automatically set to full speed to cool down the system.
-- **When the CPU temperature drops below 70°C**: The fan mode is switched back to auto, allowing the system to regulate the fan speed based on normal usage.
+- **When the CPU temperature exceeds 87°C**: The fan is automatically set to 100% speed to cool down the system.
+- **When the CPU temperature exceeds 82°C**: The fan is automatically set to 80% speed to keep the temperature under control.
+- **When the CPU temperature exceeds 77°C**: The fan is automatically set to 60% speed.
+- **When the CPU temperature drops below 77°C**: The fan mode is switched back to auto, allowing the system to regulate the fan speed based on normal usage.
 
 This automatic control ensures that the system remains cool during high load and returns to quieter, more energy-efficient operation when the temperature is back to normal levels.
 
