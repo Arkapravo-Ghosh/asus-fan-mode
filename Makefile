@@ -49,7 +49,9 @@ install: compile
 	sudo cp -r $(DIST_DIR) /opt/$(TARGET_NAME)
 	sudo ln -s /opt/$(TARGET_NAME)/$(TARGET_NAME) /usr/bin/$(TARGET_NAME)
 	sudo cp $(SYSTEMD_SERVICE) /etc/systemd/system/
+	sudo $(TARGET_NAME) --setup
 	sudo systemctl daemon-reload
+	sudo systemctl enable --now $(SYSTEMD_SERVICE)
 	@echo "Installation complete."
 
 remove:
