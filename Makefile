@@ -10,10 +10,10 @@ REQUIRED_SYSTEM_TOOLS := python3 objdump
 
 help:
 	@echo "Usage: make [target]\n"
-	@echo "  clean  	Clean all the build files."
-	@echo "  compile	Compile the program."
+	@echo "  clean  	Remove all the build artifacts."
+	@echo "  build		Build the program executable."
 	@echo "  install	Install the program."
-	@echo "  remove 	Uninstall the program."
+	@echo "  remove 	Remove the program and config files."
 	@echo "  check  	Check for required tools."
 
 check:
@@ -33,9 +33,8 @@ check:
 clean:
 	@echo "Cleaning..."
 	@rm -rf dist $(BUILD_DIR) $(SPEC_FILE)
-	@echo "Clean complete."
 
-compile: check
+build: check
 	@echo "Compiling..."
 	@python3 -m venv .venv && \
 	. .venv/bin/activate && \
@@ -43,7 +42,7 @@ compile: check
 	pyinstaller $(PYINSTALLER_FLAGS) && \
 	echo "Compiled. Check '$(DIST_DIR)' for the binary and '$(BUILD_DIR)' for the build files."
 
-install: compile
+install: build
 	@echo "Installing..."
 	sudo rm -rf /opt/$(TARGET_NAME) /usr/bin/$(TARGET_NAME)
 	sudo cp -r $(DIST_DIR) /opt/$(TARGET_NAME)
