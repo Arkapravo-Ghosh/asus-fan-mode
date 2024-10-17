@@ -5,8 +5,6 @@ Fan Mode Control for Asus Vivobook 14X Pro OLED in Linux
 ![](https://img.shields.io/github/license/Arkapravo-Ghosh/asus-fan-mode)
 ![](https://img.shields.io/badge/platform-Linux-blue)
 
-- [Click Here](src/main.py) for Source code.
-
 ## Installation
 
 > Installation Guide is written in [INSTALLATION.md](INSTALLATION.md).
