@@ -25,11 +25,12 @@ Fan Mode Control for Asus Vivobook 14X Pro OLED in Linux
 
 ## Make Options
 
-- **clean** - Clean all the build artifacts.
-- **compile** - Compile the program.
-- **install** - Install the program.
-- **remove** - Remove the program.
-- **check** - Check for required tools.
+- `help` to show help message.
+- `check` to check for build dependencies.
+- `clean` to clean all the build artifacts.
+- `build` to build the executable.
+- `install` to install the program.
+- `remove` to remove the program.
 
 ### Known Issues
 
