@@ -5,7 +5,7 @@
 Install the following packages:
 
 - [lm_sensors](https://github.com/lm-sensors/lm-sensors)
-- `make`
+- [make](https://www.gnu.org/software/make)
 
 ### Arch Linux
 
